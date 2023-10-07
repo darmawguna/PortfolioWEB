@@ -568,6 +568,18 @@ video {
   }
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .ml-10 {
   margin-left: 2.5rem;
 }
@@ -628,6 +640,10 @@ video {
   max-width: 100%;
 }
 
+.max-w-xl {
+  max-width: 36rem;
+}
+
 .flex-shrink-0 {
   flex-shrink: 0;
 }
@@ -650,6 +666,10 @@ video {
 
 .flex-row {
   flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .items-start {
@@ -676,6 +696,10 @@ video {
   gap: 5rem;
 }
 
+.gap-5 {
+  gap: 1.25rem;
+}
+
 .gap-8 {
   gap: 2rem;
 }
@@ -684,6 +708,18 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(8rem * var(--tw-space-x-reverse));
   margin-left: calc(8rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-stretch {
+  align-self: stretch;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .bg-black {
@@ -696,6 +732,16 @@ video {
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -706,9 +752,31 @@ video {
   background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 
+.bg-opacity-100 {
+  --tw-bg-opacity: 1;
+}
+
+.fill-white {
+  fill: #fff;
+}
+
+.stroke-black {
+  stroke: #000;
+}
+
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
 .px-40 {
   padding-left: 10rem;
   padding-right: 10rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .px-6 {
@@ -724,6 +792,21 @@ video {
 .px-96 {
   padding-left: 24rem;
   padding-right: 24rem;
+}
+
+.px-\[160px\] {
+  padding-left: 160px;
+  padding-right: 160px;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .py-3 {
@@ -742,10 +825,6 @@ video {
 
 .pl-72 {
   padding-left: 18rem;
-}
-
-.pl-80 {
-  padding-left: 20rem;
 }
 
 .pt-32 {
@@ -807,6 +886,10 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.leading-10 {
+  line-height: 2.5rem;
 }
 
 .leading-7 {

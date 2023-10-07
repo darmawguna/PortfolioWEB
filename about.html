@@ -24,11 +24,12 @@
         >
       </div>
       <div class="flex">
-        <img class="mr-10" src="img//navigation/Mail.svg" alt="Mail" />
-        <img class="ml-10" src="img//navigation/Twitter.svg" alt="Mail" />
+        <img class="mr-10" src="./src/img/navigation/Mail.svg" alt="Mail" />
+        <img class="ml-10" src="./src/img/navigation/Twitter.svg" alt="Mail" />
       </div>
     </nav>
     <!-- navigation end  -->
+    <!-- main content start -->
     <div class="container grid grid-rows-3">
       <!-- hero start -->
       <div
@@ -44,14 +45,14 @@
             magnam odit ipsam placeat mollitia libero optio praesentium!
           </p>
         </div>
-        <img src="./img/Rectangle 4.png" alt="profile-picture-image" />
+        <img class="" src="./src/img/gmd.jpg" alt="profile-picture-image" />
       </div>
       <!-- hero end  -->
       <!-- detail start -->
       <div
-        class="mt-8 items-center justify-center justify-items-center max-w-full"
+        class="mt-8 items-center justify-center justify-items-center max-w-full mb-10"
       >
-        <h3 class="text-left pl-80 mt-10 font-bold text-4xl">
+        <h3 class="mt-10 font-bold text-4xl text-center">
           A little bit about me
         </h3>
 
@@ -65,9 +66,80 @@
       </div>
       <!-- detail end  -->
 
-      <!-- footer start -->
+      <!-- contact me start  -->
+      <div class="contactMe flex justify-center items-center py-24 px-20">
+        <div class="">
+          <div class="mb-12">
+            <div class="flex justify-center items-center self-stretch mb-5">
+              <p class="bg-slate-300 rounded-xl py-1 px-5 bg-opacity-100">
+                Get in touch
+              </p>
+            </div>
+            <div class="flex flex-col justify-center items-center self-center">
+              <p class="max-w-xl self-stretch font-normal text-xl leading-7">
+                What’s next? Feel free to reach out to me if you're looking for
+                a developer, have a query, or simply want to connect.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-5 items-center justify-center mb-12">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="Icon/Mail">
+                <path
+                  id="Union"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M16.0003 15.8113L3.20507 9.41445C3.25243 8.59916 3.60972 7.83284 4.20375 7.27242C4.79778 6.712 5.5836 6.39991 6.40027 6.40005H25.6003C26.4169 6.39991 27.2028 6.712 27.7968 7.27242C28.3908 7.83284 28.7481 8.59916 28.7955 9.41445L16.0003 15.8113ZM15.9999 19.3888L28.7999 12.9888V22.4C28.7999 23.2487 28.4627 24.0626 27.8626 24.6627C27.2625 25.2628 26.4486 25.6 25.5999 25.6H6.39986C5.55117 25.6 4.73723 25.2628 4.13712 24.6627C3.537 24.0626 3.19986 23.2487 3.19986 22.4V12.9888L15.9999 19.3888Z"
+                  fill="#0C0B0B"
+                  class="fill-white stroke-black"
+                />
+              </g>
+            </svg>
+            <p
+              class="text-center text-4xl font-semibold leading-10"
+              id="email-to-copy"
+            >
+              komangagus642@gmail.com
+            </p>
+            <button id="email-button">
+              <img src="./src/img/copy.svg" alt="Icon Copy" />
+            </button>
+          </div>
+          <div class="flex gap-5 items-center justify-center mb-12">
+            <img src="./src/img/call.svg" alt="" />
 
-      <!-- footer end -->
+            <p
+              class="text-center text-4xl font-semibold leading-10"
+              id="number-to-copy"
+            >
+              +62 878 8046 4756
+            </p>
+            <button id="number-button">
+              <img src="./src/img/copy.svg" alt="Icon Copy" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- contact me end  -->
     </div>
+    <!-- main content end  -->
+    <!-- footer start -->
+    <hr class="text-slate-400" />
+    <div
+      class="footer  w-full h-20 flex-shrink-0 flex justify-center items-center py-6 px-[160px]"
+    >
+      <div>
+        <p>Darma Wiguna © 2023. All Rights Reserved.</p>
+      </div>
+    </div>
+    <!-- footer end  -->
+
+    <script src="script.js"></script>
   </body>
 </html>
