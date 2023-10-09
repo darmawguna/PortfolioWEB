@@ -3,19 +3,33 @@ const emailText = document.getElementById("email-to-copy");
 const numberButton = document.getElementById("number-button");
 const numberText = document.getElementById("number-to-copy");
 
+
 emailButton.addEventListener("click", () => {
-  // Buat elemen input sementara untuk menyalin teks
-  const tempInput = document.createElement("input");
-  tempInput.value = emailText.innerText;
-  document.body.appendChild(tempInput);
+  const textToCopy = emailText.innerText;
 
-  // Pilih teks dalam input dan salin ke clipboard
-  tempInput.select();
-  document.execCommand("copy");
+  // Gunakan Clipboard API untuk menyalin teks ke clipboard
+  navigator.clipboard
+    .writeText(textToCopy)
+    .then(() => {
+      // Beri tahu pengguna bahwa teks telah disalin (opsional)
+      alert("Teks telah disalin!");
+    })
+    .catch((error) => {
+      console.error("Gagal menyalin teks: ", error);
+    });
+});
 
-  // Hapus elemen input sementara
-  document.body.removeChild(tempInput);
+numberButton.addEventListener("click", () => {
+  const textToCopy = numberText.innerText;
 
-  // Beri tahu pengguna bahwa teks telah disalin (opsional)
-  alert("Teks telah disalin!");
+  // Gunakan Clipboard API untuk menyalin teks ke clipboard
+  navigator.clipboard
+    .writeText(textToCopy)
+    .then(() => {
+      // Beri tahu pengguna bahwa teks telah disalin (opsional)
+      alert("Teks telah disalin!");
+    })
+    .catch((error) => {
+      console.error("Gagal menyalin teks: ", error);
+    });
 });
