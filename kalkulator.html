@@ -1,11 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <!-- navigation start -->
+    <nav
+      class="h-20 flex w-full px-40 py-6 justify-between items-center bg-white"
+    >
+      <h4 class="font-bold leading-normal text-3xl">Darm.</h4>
+      <div class="flex items-start gap-20">
+        <a
+          class="font-semibold underline underline-offset-8 decoration-2"
+          href="./index.html"
+          >Home</a
+        >
+        <a class="text-slate-400 hover:text-slate-950" href="#">Blog</a>
+        <a class="text-slate-400 hover:text-slate-950" href="./work.html"
+          >Work</a
+        >
+        <a class="text-slate-400 hover:text-slate-950" href="./about.html"
+          >About</a
+        >
+      </div>
+      <div class="flex">
+        <a href=""
+          ><img class="mr-10" src="./src/img/navigation/Mail.svg" alt="Mail"
+        /></a>
+        <a href="">
+          <img class="ml-10" src="./src/img/navigation/Twitter.svg" alt="Mail"
+        /></a>
+      </div>
+    </nav>
+    <!-- navigation end  -->
+
+    <!-- Hero start  -->
+    <div
+      class="container mb-96 flex justify-center items-center flex-col"
+      id="app"
+    >
+      <h1 class="text-center mt-20 text-3xl font-bold">
+        Kalkulator simulasi kredit
+      </h1>
+      <p class="text-center">
+        Kalkulator untuk menghitung return dari investasi
+      </p>
+      <div class="mt-20 bg-slate-50 rounded-md drop-shadow-xl p-10">
+        <div class="">
+          <a href="./index.html">
+            <img
+              src="./src/img/arrow-left.svg"
+              class="w-5 h-5 mb-8 font-bold"
+              alt=""
+            />
+          </a>
+        </div>
+
+        <div class="container">
+          <div class="inputForm">
+            <div>
+              <label class="block text-base font-semibold" for="uangHarapan"
+                >masukan jumlah uang yang ingin dipinjam :</label
+              ><span class="mr-1 text-base font-semibold">RP</span>
+              <input
+                class="border-b-2 border-black outline-none focus:border-blue-400"
+                type="number"
+                id="uangHarapan"
+                v-model="pokokPinjaman"
+              />
+            </div>
+            <div class="mb-5">
+              <label class="block text-base font-semibold" for="jumlahTahun"
+                >waktu untuk membayar cicilan :</label
+              >
+
+              <input
+                class="border-b-2 border-black outline-none focus:border-blue-400"
+                type="number"
+                id="jumlahTahun"
+                v-model="jangkaWaktu"
+              />
+              <span class="ml-1 text-base font-semibold">bulan</span>
+            </div>
+
+            <div class="mb-5">
+              <label
+                class="block text-base font-semibold mt-2"
+                for="targetinvest"
+                >bunga dari pinjaman :</label
+              >
+              <input
+                class="border-b-2 border-black outline-none focus:border-blue-400"
+                type="number"
+                id="targetinvest"
+                v-model="bunga"
+              />
+              <span class="ml-1 text-base font-semibold">%</span>
+            </div>
+          </div>
+          <div class="outputForm">
+            <div id="button-hasil" class="flex justify-between items-center">
+              <p class="text-base font-semibold">ayo lihat hasilnya..</p>
+              <button
+                @click="biayaCicilan"
+                class="p-2 bg-blue-400 hover:bg-blue-600 text-white hover:text-black drop-shadow-sm rounded-md"
+              >
+                tampilkan
+              </button>
+            </div>
+            <div class="block mt-4">
+              <h2 class="text-base font-semibold">Hasil:</h2>
+              <div v-show="jumlahCicilan">
+                <p>
+                  berikut adalah jumlah yang harus dibayar tiap bulannya {{
+                  jumlahCicilan }}
+                </p>
+
+                <button
+                  @click="reset"
+                  class="mt-3 px-2 bg-blue-400 hover:bg-blue-600 text-white hover:text-black drop-shadow-sm rounded-md"
+                >
+                  reset
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero end  -->
+
+    <!-- footer start  -->
+    <hr class="text-slate-400" />
+    <div
+      class="footer w-full h-20 flex-shrink-0 flex justify-center items-center py-6 px-[160px]"
+    >
+      <div>
+        <p>Darma Wiguna © 2023. All Rights Reserved.</p>
+      </div>
+    </div>
+    <!-- footer end  -->
+
+    <!-- script start -->
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            pokokPinjaman: 0,
+            jangkaWaktu: 0,
+            bunga: 0,
+            jumlahCicilan: null,
+          };
+        },
+        methods: {
+          formatRupiah: function (value) {
+            const formatter = new Intl.NumberFormat("id-ID", {
+              style: "currency",
+              currency: "IDR",
+              minimumFractionDigits: 0,
+            });
+            return formatter.format(value);
+          },
+          biayaCicilan: function () {
+            let pokokPerBulan =
+              parseFloat(this.pokokPinjaman) / this.jangkaWaktu;
+            let bulan = this.jangkaWaktu;
+            let totalBunga = (this.pokokPinjaman * this.bunga) / 100;
+            let bungaPerBulan = totalBunga;
+
+            let total = pokokPerBulan + bungaPerBulan;
+            this.jumlahCicilan = this.formatRupiah(total);
+          },
+
+          reset: function () {
+            this.jumlahCicilan = null;
+            this.pokokPinjaman = 0;
+            this.bunga = 0;
+            this.jangkaWaktu = 0;
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+    <!-- script end  -->
+  </body>
 </html>
